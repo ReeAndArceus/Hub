@@ -1,0 +1,233 @@
+local Library = loadstring(game:HttpGet("https://raw.githubusercontent.com/xHeptc/Kavo-UI-Library/main/source.lua"))()
+local Window = Library.CreateLib("Ree's Hub Or Nothing.", "DarkTheme")
+
+-- Tabs Annd Sections 
+
+local Tab1 = Window:NewTab("Speed City")
+local Tab2 = Window:NewTab("Advanced Monsters")
+local Tab3 = Window:NewTab("Skywars")
+local Tab4 = Window:NewTab("Others")
+local Tab5 = Window:NewTab("Credits")
+local Tab1Section = Tab1:NewSection("Speed City")
+local Tab2Section = Tab2:NewSection("Advanced Monsters")
+local Tab3Section = Tab3:NewSection("Skywars")
+local Tab4Section = Tab4:NewSection("Others")
+local Tab5Section = Tab:NewSection("Credits")
+
+-- Buttons , Sliders and Toggles.
+
+Tab1Section:NewButton("Ghost City", "Teleport You To Ghost City", function()
+game.Players.LocalPlayer.Character.Humanoid.RootPart.CFrame = CFrame.new(-3826.49169921875, -33.828704833984375, 7099.44140625)
+   print("Ree Is Cool")
+end)
+
+Tab1Section:NewButton("Removed Map", "Teleports You to Shadow City", function()
+game.Players.LocalPlayer.Character.Humanoid.RootPart.CFrame = CFrame.new(-4976.3876953125, 410.3184814453125, -5960.04931640625)
+   print("Ree Is Cool")
+end)
+
+Tab1Section:NewButton("AutoFarm Gui by ghostplayer", "Credits to ghostplayer", function()
+loadstring(game:HttpGet('https://pastebin.com/raw/KUZjHgif'))()
+  print("ghostplayer Is Cool")
+end)
+
+
+Tab2Section:NewButton("Complete Game", "Credits To dooboo", function()
+local function giveStat(name, amount)
+    game:GetService("ReplicatedStorage").FUNCTION:InvokeServer(
+        "IncreaseStat",
+        name,
+        amount
+    )
+end
+
+local loplr = game:GetService("Players").LocalPlayer
+local loid = loplr.UserId
+
+local values = {
+    ["Admin"] = 1,
+    ["RainbowPrefix"] = 1,
+    ["RainbowEvent"] = 1,
+    ["EggTracker"] = 1,
+}
+
+for i, inst in pairs(game:GetService("ReplicatedStorage").DataHolder[loid]:GetChildren()) do
+    local max_value = values[inst.Name] or 1e+15
+
+    if tonumber(inst.Value) and inst.Value ~= max_value then
+        coroutine.wrap(giveStat)(inst.Name, max_value - inst.Value)
+    end
+print("Credits to dooboo")
+end)
+
+Tab3Section:NewButton("InfJump", "Credits to Puuror", function()
+if state == true then
+getgenv().Jump = true
+local plr = game:GetService("Players").LocalPlayer
+local mouse = plr:GetMouse()
+mouse.KeyDown:Connect(function(state)
+        if getgenv().Jump then
+        if state:byte() == 32 then
+        local humanoid =          plr.Character:FindFirstChildOfClass("Humanoid")
+        humanoid:ChangeState("Jumping")
+    end
+    end
+end)
+end
+if state == false then
+  getgenv().Jump = false
+end)
+
+Tab3Section:NewButton("Sword Reach", "Reach and Credits to Puuror", function()
+local plr = game:GetService("Players").LocalPlayer
+local selection = Instance.new("SelectionBox", plr.Backpack.Sword.Handle)
+selection.LineThickness = 0.05
+selection.Color3 = Color3.new(0,0,0)
+selection.Adornee = plr.Backpack.Sword.Handle
+plr.Backpack.Sword.Handle.Size = Vector3.new(0,6,6)
+end)
+
+Tab2Section:NewButton("Oreaura", "Credits To Puuror", function()
+if value == true then
+  _G.s1 = true
+    while _G.s1 == true do
+        wait(0)
+        local function Break(Harsh)
+            local mouse = Harsh
+            if mouse.Parent.Name == "Ores" then
+                if mouse.Name == "Block" then
+                    game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse)
+                    game:GetService("Players").LocalPlayer.Character.Axe.RemoteEvent:FireServer(mouse)
+                end
+            end
+        end
+        local Block = Instance.new("Part",workspace)
+        Block.CanCollide = false
+        Block.Transparency = 1
+        Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,-1,0)
+        Block.Size = Vector3.new(15,30,15)
+        local selection = Instance.new("SelectionBox",Block)
+        selection.Adornee = Block
+        local Dis = Block.Touched:connect(Break)
+        wait(0)
+        Dis:Disconnect()
+        Block:Destroy()
+        wait(0)
+    end
+end
+if value == false then
+_G.s1 = false
+end)
+
+Tab3Section:NewButton("MineAura", "Credits To Puuror", function()
+if value == true then
+_G.s = true
+    while _G.s == true do
+        wait(0)
+        local function Break(Harsh)
+            local mouse = Harsh
+            if mouse.Name == "Block" then
+                game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse)
+                game:GetService("Players").LocalPlayer.Character.Axe.RemoteEvent:FireServer(mouse)
+            end
+        end
+        local Block = Instance.new("Part",workspace)
+        Block.CanCollide = false
+        Block.Transparency = 1
+        Block.Position = game.Players.LocalPlayer.Character.HumanoidRootPart.Position + Vector3.new(0,9,0)
+        Block.Size = Vector3.new(15,20,15)
+        local selection = Instance.new("SelectionBox",Block)
+        selection.Adornee = Block
+        local Dis = Block.Touched:connect(Break)
+        wait(0)
+        Dis:Disconnect()
+        Block:Destroy()
+        wait(0)
+    end
+end
+if value == false then
+_G.s = false
+end)
+
+Tab2Section:NewButton("FakeAxe", "Credits to Puuror", function()
+local plr = game.Players.LocalPlayer
+    local mouse = plr:GetMouse()
+
+    local tool = Instance.new("Tool",plr.Backpack)
+    tool.TextureId = "rbxassetid://399887168"
+    tool.Name = "FakeAxe"
+    tool.CanBeDropped = false
+    local handle = Instance.new("Part",tool)
+    handle.BrickColor = BrickColor.new("Rust")
+    handle.Name = "Handle"
+    handle.Size = Vector3.new(2,2,2)
+    local mesh = Instance.new("SpecialMesh",handle)
+    mesh.MeshType = "FileMesh"
+    mesh.MeshId = "rbxassetid://22147051"
+    mesh.VertexColor = mesh.VertexColor + Vector3.new(1, 1, 1)
+    tool.Grip = CFrame.new(-7.15255737e-07, 0, -0.500000477, 1.69874045e-06, 3.46025111e-08, 1, 1, 4.24721226e-14, -1.69874045e-06, -1.01252821e-13, 1, -3.46025111e-08)
+    tool.GripForward = Vector3.new(-1, 0.000001698740447864111, 3.460251107867407e-08)
+    tool.GripPos = Vector3.new(-7.152557373046875e-07, 0, -0.5000004768371582)
+    tool.GripRight = Vector3.new(0.000001698740447864111, 1, -1.0125282096052832e-13)
+    tool.GripUp = Vector3.new(3.460251107867407e-08, 4.247212255286889e-14, 1)
+    local sound = Instance.new("Sound",handle)
+    sound.SoundId = "rbxassetid://2473370042"
+    sound.Volume = 3
+    sound.PlaybackSpeed = 0.5
+    sound.Name = "SoundAxe"
+
+    tool.Activated:Connect(function()
+     if game:GetService("Players").LocalPlayer.Backpack.Axe.RemoteEvent:FireServer(mouse.Target) then
+        end
+    sound:play()
+       for i = 1,5 do
+    tool.GripUp = tool.GripUp + Vector3.new(0,0,1)
+    wait (0)
+end
+tool.GripUp = tool.GripUp + Vector3.new(0,0,-1)
+    end)
+
+    tool.Equipped:Connect(function()
+    local selection = Instance.new("SelectionBox")
+    selection.LineThickness = 0.05
+    selection.Color3 = Color3.new(0,0,0)
+    selection.Parent = plr.PlayerGui
+    mouse.Move:Connect(function()
+    local target = mouse.Target
+    selection.Adornee = mouse.Target
+    tool.Unequipped:Connect(function()
+    selection:destroy()
+    end)
+
+Tab4Section:NewButton("Inf Jumps", "Enables Inf Jumps", function()
+    local InfiniteJumpEnabled = true
+game:GetService("UserInputService").JumpRequest:connect(function()
+	if InfiniteJumpEnabled then
+	game:GetService"Players".LocalPlayer.Character:FindFirstChildOfClass'Humanoid':ChangeState("Jumping")
+	end
+end)
+end)
+
+Tab5Section:NewButton("Credits to Puuror", "Credits to Puuror", function()
+    print("Credits to Puuror")
+end)
+
+Tab5Section:NewButton("Credits to dooboo", "Credits to dooboo", function()
+    print("Credits to dooboo")
+end)
+
+Tab5Section:NewButton("Credits to Me (ofc)", "ok", function()
+print("wut")
+end)
+
+Tab4Section:NewToggle("Fov", "Changes Fov", function(state)
+    if state then
+        game.Workspace.CurrentCamera.FieldOfView = 120
+    else
+        game.Workspace.CurrentCamera.FieldOfView = 80
+    end
+end)
+
+Tab4Section:NewSlider("Speed", "Be Fast As Flash", 250, 120, function(v)
+    game.Players.LocalPlayer.Character.Humanoid.WalkSpeed = v
+end)
